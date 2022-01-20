@@ -271,7 +271,11 @@ OneWireBus* owb_gpio_initialize(owb_gpio_driver_info * driver_info, int gpio)
     driver_info->bus.strong_pullup_gpio = GPIO_NUM_NC;
 
     // platform specific:
+#if ESP_IDF_VERSION_MAJOR > 4
+    esp_rom_gpio_pad_select_gpio(driver_info->gpio);
+#else
     gpio_pad_select_gpio(driver_info->gpio);
+#endif
 
 #ifdef PHY_DEBUG
     gpio_config_t io_conf;

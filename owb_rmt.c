@@ -60,6 +60,9 @@ sample code bearing this copyright.
 
 #include "driver/rmt.h"
 #include "driver/gpio.h"
+#include "soc/io_mux_reg.h"
+#include "soc/gpio_periph.h"
+
 #include "esp_log.h"
 
 #undef OW_DEBUG

@@ -342,7 +342,11 @@ owb_status owb_use_strong_pullup_gpio(OneWireBus * bus, gpio_num_t gpio)
                 ESP_LOGW(TAG, "Strong pull-up GPIO set with parasitic-power disabled");
             }
 
+#if ESP_IDF_VERSION_MAJOR > 4
+            esp_rom_gpio_pad_select_gpio(gpio);
+#else
             gpio_pad_select_gpio(gpio);
+#endif
             gpio_set_direction(gpio, GPIO_MODE_OUTPUT);
         }
         else
