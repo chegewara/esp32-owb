@@ -82,7 +82,7 @@ static const struct _OneWireBus_Timing _StandardTiming = {
 
 static void _us_delay(uint32_t time_us)
 {
-    ets_delay_us(time_us);
+    esp_rom_delay_us(time_us);
 }
 
 /// @cond ignore
